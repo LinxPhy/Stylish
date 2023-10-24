@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600&display=swap');
+
+.background_image{
+    width: 100%;
+    height: calc(100vh - 100px);
+    position: relative;
+}
+
+.background_image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+.background_image_text{
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    width: 50%;
+}
+
+.background_image_text p{
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.4rem;
+}
+
+.background_image_text h2{
+    font-family: 'Oswald', sans-serif;
+    font-size: 5rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.background_image button{
+    margin-top: 40px;
+}
+
+
+
+.Featured h2{
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+.Featured h3{
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.Featured p{
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+}
+
+.Featured_items{
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    
+}
+
+.Featured_item img{
+    width: 350px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.collections{
+    background-color: #fafafa; 
+}
+
+.all_collections{
+    display: flex;
+    gap: 20px;
+}
+
+.left_collection {
+    height: 660px;
+}
+
+.right_collection div{
+    height: 320px;
+}
+
+.right_collection {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.left_collection img, .right_collection img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.right_collection div, .left_collection{
+    position: relative;
+}
+
+.right_collection h2, .left_collection h2{
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem;
+}
+
+.right_collection p, .left_collection p{
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    color: white;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    max-width: 300px;
+    margin-top: 80px;
+}

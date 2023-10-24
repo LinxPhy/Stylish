@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    overflow-y: scroll;
+}
+/* 
+body{
+    min-height: calc(100vh - 100px);
+} */
+
+a, i, .cart span, button{
+    cursor: pointer;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Oswald', sans-serif;
+}
+
+ul li{
+    list-style: none;
+}
+
+.homepage_style{
+    padding: 150px 0px;
+    max-width: 1460px;
+    margin: 0 auto;
+}
+
+.buttonStyle1{
+    background-color: white;
+    color: black;
+    width: 300px;
+    height: 50px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.buttonStyle1:hover{
+    background-color: black;
+    color: white;
+}
+
