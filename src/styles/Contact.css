@@ -1,0 +1,83 @@
+
+.Contact{
+    background-color: #fafafa; 
+}
+
+.Contact_area{
+    display: flex;
+    gap: 20px;
+}
+
+.Contact_area h2{
+    font-size: 2.3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.Contact_area p{
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1.6rem;
+    margin-bottom: 2rem;
+}
+
+.Contact_area > div{
+    flex-basis: 50%;
+}
+
+.Contact_area ul li {
+    /* font-family: 'Raleway', sans-serif; */
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.Contact_area input[type=text]{
+    width: 100%;
+    height: 50px;
+    border: 1px solid black;
+    padding: 0 20px;
+    margin-bottom: 1rem;
+    color: black;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+}
+
+.checkbox_area{
+    display: flex;
+    font-family: 'Raleway', sans-serif;
+    padding-left: 20px;
+    font-size: 1rem;
+    gap: 20px;
+    margin-bottom: 1rem;
+}
+
+.Contact_area textarea{
+    width: 100%;
+    height: 150px;
+    border: 1px solid black;
+    padding: 20px;
+    margin-bottom: 1rem;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+}
+
+.Contact_area button{
+    background-color: black;
+    color: white;
+    width: 100%;
+    height: 60px;
+    border: none;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.Contact_area button:hover{
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
