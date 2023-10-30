@@ -7,10 +7,10 @@
 html{
     overflow-y: scroll;
 }
-/* 
-body{
+
+.container{
     min-height: calc(100vh - 100px);
-} */
+} 
 
 a, i, .cart span, button{
     cursor: pointer;

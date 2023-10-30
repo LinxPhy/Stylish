@@ -48,3 +48,18 @@
     object-fit: cover;
     border-radius: 20px;
 }
+
+.filters{
+    display: flex;
+    justify-content: center;
+}
+
+.filter select{
+    padding: 10px 20px;
+  
+    border: 1px solid #000;
+    margin: 0px 10px;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+}

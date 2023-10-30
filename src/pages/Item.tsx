@@ -1,4 +1,5 @@
 import axios from 'axios';
+import LoadingAnimation from "../components/LoadingAnimation/loadinganimation";
 import { useQuery } from 'react-query';
 import { ShoppingContext } from '../context/ShoppingContext';
 import { useContext, useEffect, useState } from 'react';
@@ -12,28 +13,27 @@ async function getItem() {
 
 function Item() {
 
+    const [ imageLoaded, setImageLoaded ] = useState(false)
     const { data, status } = useQuery('item', getItem);
-    const [ quantity, setQuantity ] = useState(0);
     const [ size, setSize ] = useState('/');
-    const { addToCart } : any = useContext(ShoppingContext)
+    const { addToCart, quantity, setQuantity, increaseQuantity, decreaseQuantity } : any = useContext(ShoppingContext)
 
-    function increaseQuantity() {
-        if (quantity > 8) { return;}
-        setQuantity(quantity + 1);
-    }
+    const handleImageLoad = () => {
+        setImageLoaded(true);
+      };
 
-    function decreaseQuantity() {
-        if (quantity < 1) { return;}
-        setQuantity(quantity - 1);
-    }
+    useEffect(() => {
+        setQuantity(0)
+    }, [])
 
     function OtherImages(images: String, display_image: String){
         let imageList = images.split(',') as any ;
         imageList.push(display_image)
+
         return (
             <>
                 {imageList.map((image: any, key: any) => (
-                    <img src={image} alt={image} key={key} />
+                    <img src={image} alt={image} key={key} onLoad={() => handleImageLoad()} />
                 ))}
             </>
         )
@@ -51,8 +51,8 @@ function Item() {
         )
     }
 
-    if (status === 'loading') {
-        return <div>Loading...</div>
+    if (status === 'loading'  ) {
+        return <LoadingAnimation />
     }
 
     if (status === 'error') {
@@ -63,7 +63,7 @@ function Item() {
         <main className='shopping_item_page'>
             <section className='shopping_item_container homepage_style'>
                 <div className='shopping_item'>
-                    {OtherImages(data.otherImages, data?.display_image)}
+                    {OtherImages(data.otherImages, data?.image)}
                 </div>
 
                 <div className='shopping_item_text'>
@@ -76,7 +76,7 @@ function Item() {
                     <p className='price'>£ {data.price}</p>
                     <div className='size'>
                         <label htmlFor="size"><b>Size:</b></label>
-                        <select name="size" id="size" onChange={(e) => setSize(e.target.value)}>
+                        <select name="size" id="size" value={size} onChange={(e) => setSize(e.target.value)}>
                             {getSize(data.size)}
                         </select>
                     </div>
@@ -90,7 +90,7 @@ function Item() {
                     </div>
 
                     <p className='description'>{data.description}</p>
-                    <button className='buttonStyle1 shopping_item_button' onClick={() => addToCart(data.id, data.price, quantity, size)}> Add to Basket </button>
+                    <button className='buttonStyle1 shopping_item_button' onClick={() => addToCart(data.id, data.price, quantity, size, data.name, data.image)}> Add to Basket </button>
                 </div>
             </section>
         </main>

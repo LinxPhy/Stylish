@@ -1,7 +1,12 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { ShoppingContext } from '../../context/ShoppingContext';
+import { useContext} from 'react';
 import './Header.css';
 
 const Header = () => {
+
+    const navigate = useNavigate();
+    const { cart } : any = useContext(ShoppingContext);
 
     return (
         <header className="header">
@@ -18,7 +23,11 @@ const Header = () => {
             <div className="cart">
                 <span className="material-symbols-outlined">person</span>
                 <span className="material-symbols-outlined">search</span>
-                <span className="material-symbols-outlined">shopping_cart</span>
+                <div onClick={() => navigate('/basket')}>
+                    <span className="material-symbols-outlined">shopping_cart</span>
+                    <span className="cart_quantity">{cart.length}</span>
+                </div>
+                
             </div>
             
         </header>

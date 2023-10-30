@@ -88,7 +88,7 @@
     gap: 10px;
 }
 
-.shopping_item_text .quantity{
+.quantity{
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -96,7 +96,7 @@
     width: fit-content;
 }
 
-.shopping_item_text .quantity button{
+.quantity button{
     background-color: white;
     color: black;
     width: 30px;
@@ -104,7 +104,7 @@
     border: 1.3px solid black;
 }
 
-.shopping_item_text .quantity button:hover{
+.quantity button:hover{
     background-color: black;
     color: white;
 }

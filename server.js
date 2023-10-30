@@ -64,10 +64,20 @@ app.use(table_values)
 
 
 app.get('/api', async(req, res) => {
-
     var values = req.values
     res.status(200).send(values)
+})
+
+app.get('/api/filters', async(req, res) => {
+    var values = JSON.parse(req.values)
     
+    let filters = {
+        brand: [...new Set(values.map(value => value.brand))],
+        sex: [...new Set(values.map(value => value.sex))],
+        type: [...new Set(values.map(value => value.type))]
+    };
+
+    res.status(200).send(JSON.stringify(filters))
 })
 
 app.get('/api/item/:id', async(req, res) => {

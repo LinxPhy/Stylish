@@ -1,0 +1,13 @@
+import './loadinganimation.css'
+
+const LoadingAnimation = () => {
+
+    return (
+        <div className='loadinganimation'>
+            <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+        </div>
+    )
+
+}
+
+export default LoadingAnimation

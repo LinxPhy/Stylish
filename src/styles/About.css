@@ -1,0 +1,38 @@
+
+
+.About p{
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.5;
+    margin: 0 0 1rem 0;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.About h2{
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin: 0 0 1rem 0;
+    text-justify: inter-word;
+}
+
+.About h4{
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.5;
+    margin: 0 0 1rem 0;
+}
+
+.About > section{
+    padding: 0px
+}
+
+.About > section > div:first-child{
+    padding: 50px
+}
+
+.about_section, .Privacy_Policy{
+    background-color: #fafafa; 
+}

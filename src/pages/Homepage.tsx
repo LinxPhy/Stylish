@@ -5,6 +5,7 @@ import BackgroundImage from '../images/background_1.avif';
 import StreetWear from '../images/street_wear.avif';
 import Flippers from '../images/flippers.avif';
 import Shoes from '../images/shoes.avif';
+import { useNavigate } from 'react-router-dom';
 
 async function getFeatured() {
     const res = await axios.get(import.meta.env.VITE_SERVER_API);
@@ -15,6 +16,7 @@ async function getFeatured() {
 function Homepage() {
 
     const { data, status } = useQuery('featured', getFeatured);
+    const navigate = useNavigate();
 
     if (status === 'loading') {
         return <div>Loading...</div>
@@ -41,7 +43,7 @@ function Homepage() {
                 <div className='Featured_items'>
                     {data.slice(0, 4).map((item: any) => (
                         <div className='Featured_item' key={item.id}>
-                            <img src={item.display_image} alt={item.title} />
+                            <img src={item.display_image} alt={item.title} onClick={() => navigate(`/item/${item.id}/${item.name}`)} />
                             <div className='Featured_item_text'>
                                 <h3>{item.name}</h3>
                                 <p>£.{item.price}</p>
