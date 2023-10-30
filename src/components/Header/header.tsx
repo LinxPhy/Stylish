@@ -1,7 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { ShoppingContext } from '../../context/ShoppingContext';
 import { useContext} from 'react';
-import './Header.css';
+import './header.css';
 
 const Header = () => {
 
