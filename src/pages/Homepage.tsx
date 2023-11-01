@@ -8,9 +8,14 @@ import Shoes from '../images/shoes.avif';
 import { useNavigate } from 'react-router-dom';
 
 async function getFeatured() {
-    const res = await axios.get(import.meta.env.VITE_SERVER_API);
-    console.log(typeof res.data)
-    return res.data;
+    try{
+        const res = await axios.get(import.meta.env.VITE_SERVER_API);
+        console.log(typeof res.data)
+        return res.data;
+    } catch (e: any) {
+        console.log(e)
+    }
+    
 }
 
 function Homepage() {
