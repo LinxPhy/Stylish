@@ -14,6 +14,8 @@ async function getFeatured() {
         return res.data;
     } catch (e: any) {
         console.log(e)
+    } finally{
+        console.log(import.meta.env.VITE_SERVER_API)
     }
     
 }
