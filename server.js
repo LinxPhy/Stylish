@@ -14,6 +14,8 @@ app.use(
     })
 )
 
+const port = process.env.SERVER_PORT 
+
 const table_values = async function (req, res, next){
     
     const auth = new google.auth.GoogleAuth({
@@ -90,4 +92,4 @@ app.get('/api/item/:id', async(req, res) => {
         
 })
 
-app.listen(3000, () => { "server is running on port 3000"})
+app.listen(port, () => { `Server is running on port ${port}`})
