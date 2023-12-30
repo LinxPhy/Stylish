@@ -13,14 +13,9 @@ async function getItem() {
 
 function Item() {
 
-    const [imageLoaded, setImageLoaded] = useState(false)
     const { data, status, isLoading } = useQuery('item', getItem);
     const [size, setSize] = useState('/');
     const { addToCart, quantity, setQuantity, increaseQuantity, decreaseQuantity }: any = useContext(ShoppingContext)
-
-    const handleImageLoad = () => {
-        setImageLoaded(true);
-    };
 
     useEffect(() => {
         setQuantity(0)
@@ -33,8 +28,7 @@ function Item() {
         return (
             <>
                 {imageList.map((image: any, key: any) => (
-                    <img src={image} alt={image} key={key}
-                    onLoad={() => handleImageLoad()} />
+                    <img src={image} alt={image} key={key} />
                 ))}
             </>
         )

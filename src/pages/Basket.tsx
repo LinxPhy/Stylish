@@ -1,11 +1,10 @@
 import { ShoppingContext } from '../context/ShoppingContext';
 import { useContext } from 'react';
-import { v4 as uuidv4 } from 'uuid';
 import '../styles/Basket.css'
 
 function Basket(){
 
-    const {cart, quantity, increaseQuantity, decreaseQuantity, removeFromCart, total, increaseBasketQuantity, decreaseBasketQuantity} : any = useContext(ShoppingContext)
+    const {cart, removeFromCart, total, increaseBasketQuantity, decreaseBasketQuantity} : any = useContext(ShoppingContext)
 
     return(
         <main>

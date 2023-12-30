@@ -1,5 +1,4 @@
 import { useQuery } from 'react-query';
-import { useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import LoadingAnimation from "../components/LoadingAnimation/loadinganimation";
