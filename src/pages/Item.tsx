@@ -13,34 +13,35 @@ async function getItem() {
 
 function Item() {
 
-    const [ imageLoaded, setImageLoaded ] = useState(false)
-    const { data, status } = useQuery('item', getItem);
-    const [ size, setSize ] = useState('/');
-    const { addToCart, quantity, setQuantity, increaseQuantity, decreaseQuantity } : any = useContext(ShoppingContext)
+    const [imageLoaded, setImageLoaded] = useState(false)
+    const { data, status, isLoading } = useQuery('item', getItem);
+    const [size, setSize] = useState('/');
+    const { addToCart, quantity, setQuantity, increaseQuantity, decreaseQuantity }: any = useContext(ShoppingContext)
 
     const handleImageLoad = () => {
         setImageLoaded(true);
-      };
+    };
 
     useEffect(() => {
         setQuantity(0)
     }, [])
 
-    function OtherImages(images: String, display_image: String){
-        let imageList = images.split(',') as any ;
+    function OtherImages(images: String, display_image: String) {
+        let imageList = images.split(',') as any;
         imageList.push(display_image)
 
         return (
             <>
                 {imageList.map((image: any, key: any) => (
-                    <img src={image} alt={image} key={key} onLoad={() => handleImageLoad()} />
+                    <img src={image} alt={image} key={key}
+                    onLoad={() => handleImageLoad()} />
                 ))}
             </>
         )
     }
 
-    function getSize(size: String){
-        let sizeList = size.split(',') as any ;
+    function getSize(size: String) {
+        let sizeList = size.split(',') as any;
         return (
             <>
                 <option value='/' defaultValue={'/'}>Select size</option>
@@ -51,13 +52,15 @@ function Item() {
         )
     }
 
-    if (status === 'loading'  ) {
+    if (isLoading){
         return <LoadingAnimation />
     }
 
     if (status === 'error') {
         return <div>Error</div>
     }
+
+
 
     return (
         <main className='shopping_item_page'>
@@ -72,7 +75,7 @@ function Item() {
                         <p className='brand'>{data.brand}</p>
                         <p className='colour'><b>Colour: </b> {data.colour}</p>
                     </div>
-                    
+
                     <p className='price'>£ {data.price}</p>
                     <div className='size'>
                         <label htmlFor="size"><b>Size:</b></label>

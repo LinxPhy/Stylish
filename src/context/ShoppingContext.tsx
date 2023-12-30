@@ -12,6 +12,10 @@ export const ShoppingContextProvider = (props: any) => {
 
     const addToCart = (id: Number, price: Number, quantity: number, size: String, name: String, image: String) => {
 
+        if (quantity < 1 || size === '/' ){
+            return
+        }
+
         if (cart.find((item: any) => item.id === id && item.size === size)) {
             setCart((prev: any) => prev.map((item: any) => item.id === id && item.size === size ? { ...item, quantity: quantity } : item))
             return;
@@ -20,8 +24,8 @@ export const ShoppingContextProvider = (props: any) => {
         setCart((prev: any) => [...prev, { id: id, price: price, quantity: quantity, size: size, name: name, image: image }])
     }
 
-    const removeFromCart = (id: Number) => {
-        setCart((prev: any) => prev.filter((item: any) => item.id !== id))
+    const removeFromCart = (id: Number, size: String) => {
+        setCart((prev: any) => prev.filter((item: any) => item.id !== id || (item.id === id && item.size !== size)))
     }
 
     const increaseQuantity = () => {

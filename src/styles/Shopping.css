@@ -1,7 +1,4 @@
 
-.All_Items{
-
-}
 
 .items{
     display: flex;
@@ -52,6 +49,20 @@
 .filters{
     display: flex;
     justify-content: center;
+}
+
+@media screen and (max-width: 768px){
+    .filters{
+        flex-direction: column;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .filter select{
+        
+        width: 300px;
+        
+    }
 }
 
 .filter select{

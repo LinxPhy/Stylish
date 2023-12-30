@@ -2,6 +2,16 @@
     background-color: #fafafa;
 }
 
+@media screen and (max-width: 768px) {
+    .shopping_item_container{
+        flex-direction: column;
+    }
+
+    .shopping_item{
+        grid-template-columns: repeat(1, minmax(0, 1fr)) !important;
+    }
+}
+
 .shopping_item_container{
     display: flex;
     justify-content: center;
@@ -107,4 +117,22 @@
 .quantity button:hover{
     background-color: black;
     color: white;
+}
+
+
+.smooth-image {
+    transition: opacity 1s;
+    -webkit-transition: opacity 1s;
+    -moz-transition: opacity 1s;
+    -o-transition: opacity 1s;
+}
+
+.image-visible {
+    opacity: 1;
+    -webkit-opacity: 1;
+}
+
+.image-hidden {
+    opacity: 0;
+    -webkit-opacity: 0;
 }

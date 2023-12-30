@@ -40,6 +40,12 @@
     margin-bottom: 20px;
 }
 
+@media screen and (max-width: 768px) {
+    .background_image_text h2{
+        font-size: 3rem;
+    }
+}
+
 .background_image button{
     margin-top: 40px;
 }
@@ -68,8 +74,23 @@
 .Featured_items{
     display: flex;
     justify-content: flex-start;
+    flex-wrap: wrap;
     gap: 20px;
-    
+    justify-content: center;
+}
+
+@media screen and (max-width: 768px){
+    .Featured h2{
+        text-align: center;
+    }
+
+    .all_collections{
+        flex-direction: column;
+    }
+
+    .background_image_text{
+        left: 50%;
+    }
 }
 
 .Featured_item img{

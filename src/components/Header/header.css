@@ -20,6 +20,11 @@ header span{
     font-size: 40px;
 }
 
+header span a{
+    color: black;
+    text-decoration: none;
+}
+
 nav ul li{
     display: inline-block;
     margin: 0 15px;
@@ -76,4 +81,58 @@ header .cart span{
 .cart div{
     position: relative;
     
+}
+
+.hamburger{
+    display: none;
+    cursor: pointer;
+}
+
+.mobile-nav {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    header nav{
+        display: none;
+    }
+
+    header .cart{
+        display: none;
+    }
+
+    .hamburger{
+        display: block;
+    }
+
+    .mobile-nav{
+        display: block;
+        width: 100%;
+    }
+
+    .mobile-nav ul{
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 99px;
+        left: 0;
+        width: 100%;
+        z-index: 1200;
+    }
+
+    .mobile-nav ul li{
+        padding: 20px 0px 20px 40px;
+        color: black;
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: 'Oswald', sans-serif;
+        text-align: center;
+        background-color: white;
+    }
+
+    .mobile-nav ul li:hover{
+        background-color: lightgray;
+    }
 }

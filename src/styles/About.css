@@ -33,6 +33,16 @@
     padding: 50px
 }
 
+/* .About section div{
+    padding: 50px;
+} */
+
 .about_section, .Privacy_Policy{
     background-color: #fafafa; 
+}
+
+@media screen and (max-width: 768px) {
+    .About section div{
+        padding: 50px 10px !important;
+    }
 }

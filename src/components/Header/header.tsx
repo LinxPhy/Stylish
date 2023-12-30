@@ -1,16 +1,18 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { ShoppingContext } from '../../context/ShoppingContext';
-import { useContext} from 'react';
+import { useContext, useState } from 'react';
 import './header.css';
 
 const Header = () => {
 
     const navigate = useNavigate();
-    const { cart } : any = useContext(ShoppingContext);
+    const [menu, setMenu] = useState(false)
+    const { cart }: any = useContext(ShoppingContext);
 
     return (
+        <>
         <header className="header">
-            <span>Stylish</span>
+            <span><Link to={'/'}>Stylish</Link></span>
             <nav>
                 <ul>
                     <li><Link to={'/'}>Home</Link></li>
@@ -27,12 +29,36 @@ const Header = () => {
                     <span className="material-symbols-outlined">shopping_cart</span>
                     <span className="cart_quantity">{cart.length}</span>
                 </div>
-                
-            </div>
-            
-        </header>
-    );
 
+            </div>
+
+
+            <span className="hamburger material-symbols-outlined" onClick={() => setMenu(!menu)}>
+                menu
+            </span>
+
+
+
+        </header>
+
+{
+        menu && (
+            <div className='mobile-nav'>
+                <ul>
+                    <li onClick={() => {navigate('/');setMenu(!menu)}}>Home</li>
+                    <li onClick={() => {navigate('/about');setMenu(!menu)}}>About</li>
+                    <li onClick={() => {navigate('/shopping');setMenu(!menu)}}>Shopping</li>
+                    <li onClick={() => {navigate('/contact');setMenu(!menu)}}>Contact</li>
+                    <li>Profile</li>
+                    <li>Search</li>
+                    <li onClick={() => {navigate('/basket');setMenu(!menu)}}>Cart (Items - {cart.length})</li>
+                </ul>
+            </div>
+        )
+    }
+    
+    </>
+    )
 }
 
 export default Header;

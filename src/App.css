@@ -6,6 +6,10 @@
 
 html{
     overflow-y: scroll;
+    
+    /* overflow-x: hidden; */
+    /* width: 100%;
+    max-width: 100vw; */
 }
 
 .container{
@@ -28,6 +32,13 @@ ul li{
     padding: 150px 0px;
     max-width: 1460px;
     margin: 0 auto;
+    /* width: 100%; */
+}
+
+@media screen and (max-width: 768px){
+    .homepage_style h2{
+        text-align: center;
+    }
 }
 
 .buttonStyle1{

@@ -1,5 +1,6 @@
 import { ShoppingContext } from '../context/ShoppingContext';
 import { useContext } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import '../styles/Basket.css'
 
 function Basket(){
@@ -38,7 +39,7 @@ function Basket(){
                                     <p>£.{(item.price * item.quantity).toFixed(2)}</p>
                                 </div>
 
-                                <div className='basket_item_remove' onClick={() => removeFromCart(item.id)}>
+                                <div className='basket_item_remove' onClick={() => removeFromCart(item.id, item.size)}>
                                     <i className="fa-solid fa-x" ></i>
                                 </div>
                             </div>
