@@ -6,27 +6,27 @@ import StreetWear from '../images/street_wear.avif';
 import Flippers from '../images/flippers.avif';
 import Shoes from '../images/shoes.avif';
 import { useNavigate } from 'react-router-dom';
+import LoadingAnimation from '../components/LoadingAnimation/loadinganimation';
 
 async function getFeatured() {
     try{
         const res = await axios.get(import.meta.env.VITE_SERVER_API);
-        console.log(typeof res.data)
         return res.data;
     } catch (e: any) {
         console.log(e)
-    } finally{
-        console.log(import.meta.env.VITE_SERVER_API)
+        throw e
     }
-    
 }
 
 function Homepage() {
 
-    const { data, status } = useQuery('featured', getFeatured);
+    const { data, status } = useQuery('featured', getFeatured, {
+        staleTime: 300000
+    });
     const navigate = useNavigate();
 
     if (status === 'loading') {
-        return <div>Loading...</div>
+        return <LoadingAnimation />
     }
 
     if (status === 'error') {
