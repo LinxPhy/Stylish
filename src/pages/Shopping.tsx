@@ -1,7 +1,6 @@
 import { useQuery } from 'react-query';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
-import LoadingAnimation from "../components/LoadingAnimation/loadinganimation";
 import axios from 'axios';
 import BackgroundImage from '../images/background_2.jpg';
 import '../styles/Shopping.css';

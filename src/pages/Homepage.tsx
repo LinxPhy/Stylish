@@ -6,7 +6,6 @@ import StreetWear from '../images/street_wear.avif';
 import Flippers from '../images/flippers.avif';
 import Shoes from '../images/shoes.avif';
 import { useNavigate } from 'react-router-dom';
-import LoadingAnimation from '../components/LoadingAnimation/loadinganimation';
 
 async function getFeatured() {
     try {
