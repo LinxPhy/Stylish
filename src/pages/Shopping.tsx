@@ -20,7 +20,7 @@ async function getFilters() {
 function Shopping() {
 
     const navigate = useNavigate();
-    const [searchParams, setSearchParams] = useSearchParams({ gender: "All", Brand: "All", Type: "All"})
+    const [searchParams, setSearchParams] = useSearchParams({ gender: "All", Brand: "All", Type: "All" })
     const getGender = searchParams.get("gender")
     const getBrand = searchParams.get("Brand")
     const getType = searchParams.get("Type")
@@ -28,7 +28,25 @@ function Shopping() {
     const { data: filtersData, status: filtersStatus } = useQuery('filters', getFilters);
 
     if (featuredStatus === 'loading' || filtersStatus === 'loading') {
-        return <LoadingAnimation />
+        return (
+            <main>
+                <section className='background_image'>
+                    <img src={BackgroundImage} alt="background" />
+                    <div className='background_image_text'>
+                        <h2>Shopping Basket</h2>
+                        <p>Continue to our premium shopping items  </p>
+                    </div>
+                </section>
+
+                <section className='All_Items  homepage_style'>
+                    <div className='items'>
+                        {Array(15).fill(0).map((item: any, key: any) => (
+                            <div key={key} className='Featured_item_image_placeholder'></div>
+                        ))}
+                    </div>
+                </section>
+            </main>
+        )
     }
 
     if (featuredStatus === 'error' || filtersStatus === 'error') {
@@ -52,14 +70,14 @@ function Shopping() {
 
                 <div className='filters'>
                     <div className='filter'>
-                        <select 
-                            name="gender" 
+                        <select
+                            name="gender"
                             className='gender_filter'
-                            defaultValue={"All"}  
-                            onChange={ (e : any) => setSearchParams(prev => {
+                            defaultValue={"All"}
+                            onChange={(e: any) => setSearchParams(prev => {
                                 prev.set("gender", e.target.value)
                                 return prev
-                            }, { replace: true} ) }
+                            }, { replace: true })}
                         >
                             <option value={"All"}>All</option>
                             {filtersData.sex.map((item: any, key: number) => (
@@ -73,10 +91,10 @@ function Shopping() {
                             name="brand"
                             className='brand_filter'
                             defaultValue={"All"}
-                            onChange={ (e : any) => setSearchParams(prev => {
+                            onChange={(e: any) => setSearchParams(prev => {
                                 prev.set("Brand", e.target.value)
                                 return prev
-                            }, { replace: true} ) }
+                            }, { replace: true })}
                         >
                             <option value={"All"}>All</option>
                             {filtersData.brand.map((item: any, key: number) => (
@@ -90,10 +108,10 @@ function Shopping() {
                             name="type"
                             className='type_filter'
                             defaultValue={"All"}
-                            onChange={ (e : any) => setSearchParams(prev => {
+                            onChange={(e: any) => setSearchParams(prev => {
                                 prev.set("Type", e.target.value)
                                 return prev
-                            }, { replace: true} ) }
+                            }, { replace: true })}
                         >
                             <option value={"All"}>All</option>
                             {filtersData.type.map((item: any, key: number) => (
@@ -105,19 +123,22 @@ function Shopping() {
 
                 <div className='items'>
                     {featuredData
-                    .filter((item: any) => getGender !== "All" && getGender !== null? item.sex === getGender : item)
-                    .filter((item: any) => getBrand !== "All" && getGender !== null? item.brand === getBrand : item)
-                    .filter((item: any) => getType !== "All" && getGender !== null? item.type === getType : item)
-                    .map((item: any) => (
-                        <div className='item' key={uuidv4()}>
-                            <img src={item.image} alt={item.title} onClick={() => navigate(`/item/${item.id}/${item.name}`)} />
-                            <div className='item_text'>
-                                <h3>{item.name}</h3>
-                                <p>£.{item.price}</p>
+                        .filter((item: any) => getGender !== "All" && getGender !== null ? item.sex === getGender : item)
+                        .filter((item: any) => getBrand !== "All" && getGender !== null ? item.brand === getBrand : item)
+                        .filter((item: any) => getType !== "All" && getGender !== null ? item.type === getType : item)
+                        .map((item: any) => (
+                            <div className='item' key={uuidv4()}>
+                                {/* <img src={item.image} alt={item.title} onClick={() => navigate(`/item/${item.id}/${item.name}`)} /> */}
+                                <a href={`/item/${item.id}/${item.name}`}>
+                                    <img src={item.image} alt={item.title} />
+                                </a>
+                                <div className='item_text'>
+                                    <h3>{item.name}</h3>
+                                    <p>£.{item.price}</p>
+                                </div>
                             </div>
-                        </div>
 
-                    ))}
+                        ))}
                 </div>
             </section>
         </main>

@@ -28,7 +28,7 @@ function Item() {
         return (
             <>
                 {imageList.map((image: any, key: any) => (
-                    <img src={image} alt={image} key={key} />
+                    <img src={image} alt={image} key={key} loading='eager' />
                 ))}
             </>
         )

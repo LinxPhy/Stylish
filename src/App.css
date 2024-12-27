@@ -28,6 +28,10 @@ ul li{
     list-style: none;
 }
 
+.Featured{
+    min-height: 780px;
+}
+
 .homepage_style{
     padding: 150px 0px;
     max-width: 1460px;

@@ -7,6 +7,7 @@
     row-gap: 130px;
     flex-wrap: wrap;
     padding: 40px calc((100% - 1200px)/2);
+    min-height: 1600px;
 }
 
 .All_Items h2{

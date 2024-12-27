@@ -2,6 +2,7 @@ require('dotenv').config()
 
 const express = require('express')
 const {google} = require("googleapis")
+const cache = require('memory-cache')
 const path = require('path')
 const cors = require('cors')
 const app = express()
@@ -66,7 +67,10 @@ app.use(table_values)
 
 
 app.get('/api', async(req, res) => {
+    const cachedData = cache.get('cachedData');
+    if (cachedData) return res.send(cachedData);
     var values = req.values
+    cache.put('cachedData', values, 2147483647);
     res.status(200).send(values)
 })
 
