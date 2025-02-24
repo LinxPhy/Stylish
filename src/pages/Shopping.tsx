@@ -1,5 +1,5 @@
 import { useQuery } from 'react-query';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
 import BackgroundImage from '../images/background_2.jpg';
@@ -18,7 +18,6 @@ async function getFilters() {
 
 function Shopping() {
 
-    const navigate = useNavigate();
     const [searchParams, setSearchParams] = useSearchParams({ gender: "All", Brand: "All", Type: "All" })
     const getGender = searchParams.get("gender")
     const getBrand = searchParams.get("Brand")
@@ -39,7 +38,7 @@ function Shopping() {
 
                 <section className='All_Items  homepage_style'>
                     <div className='items'>
-                        {Array(15).fill(0).map((item: any, key: any) => (
+                        {Array(15).fill(0).map((_: any, key: any) => (
                             <div key={key} className='Featured_item_image_placeholder'></div>
                         ))}
                     </div>

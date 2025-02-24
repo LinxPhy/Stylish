@@ -5,7 +5,6 @@ import BackgroundImage from '../images/background_1.avif';
 import StreetWear from '../images/street_wear.avif';
 import Flippers from '../images/flippers.avif';
 import Shoes from '../images/shoes.avif';
-import { useNavigate } from 'react-router-dom';
 
 async function getFeatured() {
     try {
@@ -22,7 +21,6 @@ function Homepage() {
     const { data, status } = useQuery('featured', getFeatured, {
         staleTime: 300000
     });
-    const navigate = useNavigate();
 
     if (status === 'loading') {
         // return <LoadingAnimation />
@@ -41,7 +39,7 @@ function Homepage() {
                     <h2>Featured</h2>
 
                     <div className='Featured_items'>
-                        {Array(4).fill(0).map((item: any, key: any) => (
+                        {Array(4).fill(0).map((_: any, key: any) => (
                             <div className='Featured_item' key={key}>
                                 <div className='Featured_item_image_placeholder'></div>
                                 <div className='Featured_item_text'>
